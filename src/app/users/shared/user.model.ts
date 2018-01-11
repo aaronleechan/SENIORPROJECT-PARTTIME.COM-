@@ -3,7 +3,8 @@ import{Credit} from './credit';
 export class User {
 
   $key: string;
-  name: string;
+  firstname: string;
+  lastname: string;
   email: string;
   phone: string;
   address: string;

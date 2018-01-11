@@ -8,7 +8,7 @@ import {Credit} from "./credit";
 @Injectable()
 export class UserService {
   userList: AngularFireList<any>;
-  selecteduser: User = new User();
+  selectedUser: User = new User();
 
 
   constructor(private firebase: AngularFireDatabase) { }
@@ -22,7 +22,8 @@ export class UserService {
   insertUser(user: User){
     this.userList.push({
 
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
       phone: user.phone,
       address: user.address,
@@ -36,7 +37,8 @@ export class UserService {
 
   updateUser(user: User){
     this.userList.update(user.$key,{
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
       phone: user.phone,
       address: user.address,
