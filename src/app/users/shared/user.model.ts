@@ -6,11 +6,11 @@ export class User {
   firstname: string;
   lastname: string;
   email: string;
-  phone: string;
-  address: string;
-  credits: Credit[];
-  providingServices: string;
-  serviceSeekers: string;
-  serviceFee: number;
+  // phone: string;
+  // address: string;
+  // credits: Credit[];
+  // providingServices: string;
+  // serviceSeekers: string;
+  // serviceFee: number;
 
 }

@@ -11,7 +11,8 @@ export class UserService {
   selectedUser: User = new User();
 
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) {
+  }
 
 
   getData(){
@@ -24,13 +25,7 @@ export class UserService {
 
       firstname: user.firstname,
       lastname: user.lastname,
-      email: user.email,
-      phone: user.phone,
-      address: user.address,
-      credits: user.credits,
-      providingServices: user.providingServices,
-      serviceSeekers: user.serviceSeekers,
-      serviceFee: user.serviceFee
+      email: user.email
 
     });
   }
@@ -39,13 +34,7 @@ export class UserService {
     this.userList.update(user.$key,{
       firstname: user.firstname,
       lastname: user.lastname,
-      email: user.email,
-      phone: user.phone,
-      address: user.address,
-      credits: user.credits,
-      providingServices: user.providingServices,
-      serviceSeekers: user.serviceSeekers,
-      serviceFee: user.serviceFee
+      email: user.email
     });
   }
 

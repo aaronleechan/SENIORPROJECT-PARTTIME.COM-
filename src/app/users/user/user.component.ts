@@ -17,8 +17,6 @@ export class UserComponent implements OnInit {
   }
 
   onSubmit(userForm: NgForm){
-    console.log(">>>>>>>>>>>>>>>>");
-    console.log(userForm);
     this.userservice.insertUser(userForm.value);
     this.resetForm(userForm);
   }
@@ -31,13 +29,7 @@ export class UserComponent implements OnInit {
       $key: null,
       firstname: '',
       lastname: '',
-      email: '',
-      phone: '',
-      address: '',
-      credits: null,
-      providingServices: '',
-      serviceSeekers: '',
-      serviceFee: 0
+      email: ''
     }
   }
 }
