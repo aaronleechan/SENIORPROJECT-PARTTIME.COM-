@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../shared/user.service';
 import {NgForm} from "@angular/forms";
+import {ToastrModule, ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user',
@@ -9,7 +10,7 @@ import {NgForm} from "@angular/forms";
 })
 export class UserComponent implements OnInit {
 
-  constructor(private userservice: UserService) { }
+  constructor(private userservice: UserService, private tostr: ToastrService) { }
 
   ngOnInit() {
     this.userservice.getData();
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
   onSubmit(userForm: NgForm){
     this.userservice.insertUser(userForm.value);
     this.resetForm(userForm);
+    this.tostr.success('Submitted Successfully');
   }
 
 
