@@ -13,12 +13,17 @@ export class UserComponent implements OnInit {
   constructor(private userservice: UserService, private tostr: ToastrService) { }
 
   ngOnInit() {
-    this.userservice.getData();
+
     this.resetForm();
   }
 
   onSubmit(userForm: NgForm){
-    this.userservice.insertUser(userForm.value);
+    if(userForm.value.$key==null)
+      this.userservice.insertUser(userForm.value);
+    else{
+      this.userservice.updateUser(userForm.value);
+    }
+
     this.resetForm(userForm);
     this.tostr.success('Submitted Successfully');
   }

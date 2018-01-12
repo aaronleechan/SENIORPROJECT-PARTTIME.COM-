@@ -1,27 +1,26 @@
 <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="userservice.selectedUser.$key">
   <div class="form-group">
-    <label for="firstName" required>First Name</label>
-    <input type="firstName" class="form-control"
-           id="firstName"  placeholder="Enter First Name"
-           name="firstname" #firstname="ngModel" [(ngModel)]="userservice.firstname"
+    <label>First Name</label>
+    <input class="form-control"
+           name="firstname" #firstname="ngModel" [(ngModel)]="userservice.selectedUser.firstname"
            required
     >
   </div>
 
   <div class="form-group">
-    <label for="lastName" required>Last Name</label>
-    <input type="lastName" class="form-control"
-           id="lastName"  placeholder="Enter Last Name"
-           name="lastname" #lastname="ngModel" [(ngModel)]="userservice.lastname"
+    <label>Last Name</label>
+    <input class="form-control"
+           name="lastname" #lastname="ngModel" [(ngModel)]="userservice.selectedUser.lastname"
            required
     >
   </div>
 
   <div class="form-group">
-    <label for="email" required>Email</label>
-    <input type="email" class="form-control" id="email"
-           name="email" #email="ngModel" [(ngModel)]="userservice.email"
-           placeholder="Enter Email" required
+    <label>Email</label>
+    <input class="form-control"
+           name="email" #email="ngModel" [(ngModel)]="userservice.selectedUser.email"
+           required
     >
   </div>
 

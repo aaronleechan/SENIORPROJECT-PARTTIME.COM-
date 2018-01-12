@@ -5,6 +5,16 @@
     <td>{{ user.firstname }}</td>
     <td>{{ user.lastname }}</td>
     <td>{{ user.email }}</td>
+    <td>
+      <a class="btn" (click)="onEdit(user)">
+        Edit
+      </a>
+      <a class="btn" (click)="onDelete(user)">
+        Delete
+      </a>
+    </td>
+
   </tr>
+
 </table>
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
 import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
+import { User } from './user.model';
 import {Credit} from "./credit";
 
 
@@ -20,13 +20,11 @@ export class UserService {
     return this.userList;
   }
 
-  insertUser(user: User){
+  insertUser(user : User){
     this.userList.push({
-
       firstname: user.firstname,
       lastname: user.lastname,
       email: user.email
-
     });
   }
 
