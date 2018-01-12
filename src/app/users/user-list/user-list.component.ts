@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService} from "../shared/user.service";
 import { User } from "../shared/user.model";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +11,7 @@ import { User } from "../shared/user.model";
 })
 export class UserListComponent implements OnInit {
   userList: User[];
-  constructor(private userservice: UserService) { }
+  constructor(private userservice: UserService, private toastr: ToastrService) { }
 
   ngOnInit() {
     var x = this.userservice.getData();
@@ -30,6 +31,7 @@ export class UserListComponent implements OnInit {
 
   onDelete(usr : User){
     this.userservice.deleteUser(usr.$key);
+    this.toastr.warning("Delete Successfully");
   }
 
 }

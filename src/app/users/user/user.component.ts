@@ -22,6 +22,7 @@ export class UserComponent implements OnInit {
       this.userservice.insertUser(userForm.value);
     else{
       this.userservice.updateUser(userForm.value);
+      this.tostr.success("Update Successfully");
     }
 
     this.resetForm(userForm);
