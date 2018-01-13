@@ -24,7 +24,9 @@ export class UserService {
     this.userList.push({
       firstname: user.firstname,
       lastname: user.lastname,
-      email: user.email
+      email: user.email,
+      hire: user.hire,
+      find: user.find
     });
   }
 
@@ -32,7 +34,9 @@ export class UserService {
     this.userList.update(user.$key,{
       firstname: user.firstname,
       lastname: user.lastname,
-      email: user.email
+      email: user.email,
+      hire: user.hire,
+      find: user.find
     });
   }
 

@@ -25,6 +25,21 @@
   </div>
 
   <div class="form-group">
+    <label><input type="checkbox" class="form-group"
+                  name="hire" #hire="ngModel" [(ngModel)]="userservice.selectedUser.hire"
+    >
+      Hire Part-timers
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label><input type="checkbox" class="form-group"
+                  name="find" #find="ngModel" [(ngModel)]="userservice.selectedUser.find"
+    >Find Part-time Jobs
+    </label>
+  </div>
+
+  <div class="form-group">
 
     <button type="submit" class="btn btn-primary"
             [disabled]="!userForm.valid"
