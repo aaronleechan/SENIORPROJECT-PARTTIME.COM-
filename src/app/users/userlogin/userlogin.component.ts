@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService} from "../../core/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,14 +9,15 @@ import {Router} from "@angular/router";
 })
 export class UserloginComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private auth: AuthService) { }
 
   ngOnInit() {
   }
 
 
-  ananymouslogin(){
+  testLogIn(){
     console.log("TESTING");
+    this.auth.logIn();
   }
 
 }
