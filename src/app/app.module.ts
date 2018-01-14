@@ -29,6 +29,7 @@ import {AuthService} from './core/auth.service';
 import { UserloginComponent } from './users/userlogin/userlogin.component';
 import { UserFinderComponent } from './users/user-finder/user-finder.component';
 import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
     HomeComponent,
     UserloginComponent,
     UserFinderComponent,
-    UserHirerComponent
+    UserHirerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
     ModalModule.forRoot(),
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 
   ],
   providers: [AuthService],
