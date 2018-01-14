@@ -25,6 +25,10 @@ import { UsersComponent } from './users/users.component';
 import { UserComponent } from './users/user/user.component';
 import { UserListComponent } from './users/user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
+import {AuthService} from './core/auth.service';
+import { UserloginComponent } from './users/userlogin/userlogin.component';
+import { UserFinderComponent } from './users/user-finder/user-finder.component';
+import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,10 @@ import { HomeComponent } from './home/home.component';
     UserComponent,
     UserListComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    UserloginComponent,
+    UserFinderComponent,
+    UserHirerComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
