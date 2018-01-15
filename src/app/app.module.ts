@@ -19,6 +19,7 @@ import { environment} from '../environments/environment';
 //Angular Firebase
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireAuthModule} from "angularfire2/auth";
 
 //Install Component
 import { UsersComponent } from './users/users.component';
@@ -30,6 +31,7 @@ import { UserloginComponent } from './users/userlogin/userlogin.component';
 import { UserFinderComponent } from './users/user-finder/user-finder.component';
 import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
@@ -55,6 +58,7 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule
 
   ],
   providers: [AuthService],
