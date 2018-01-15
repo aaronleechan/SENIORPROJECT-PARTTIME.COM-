@@ -20,4 +20,9 @@ export class UserloginComponent implements OnInit {
     this.auth.logIn();
   }
 
+  googleLogIn(){
+    console.log("Google Log IN");
+    this.auth.logInWithGoogle();
+  }
+
 }
