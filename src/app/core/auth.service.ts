@@ -20,10 +20,12 @@ export class AuthService {
 
   logIn(){
     this._firebaseAuth.auth.signInAnonymously();
+    console.log("Success Log In");
     this.router.navigate(['/users']);
   }
 
   logInWithGoogle(){
+    // this._firebaseAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this._firebaseAuth.auth.signInWithPopup(this.googleProvider).then(
       function(result){
       var token = result.credential.accessToken;
@@ -35,14 +37,19 @@ export class AuthService {
       var errorMessage = error.message;
       var email = error.email;
       var credential = error.credential;
+      console.log(" ERROR ==> " + error);
     });
   }
 
   logOut(){
+    // this._firebaseAuth.auth.signOut();
+    // this.router.navigate(['']);
     this._firebaseAuth.auth.signOut().then(function() {
       // Sign-out successful.
+      console.log("Log Out Sccessfully why not out");
+      this.router.navigate(['']);
     }).catch(function(error) {
-      // An error happened.
+      console.log(" ERROR ==> " + error);
     });
   }
 

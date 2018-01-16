@@ -16,7 +16,6 @@ export class UserloginComponent implements OnInit {
 
 
   testLogIn(){
-    console.log("TESTING");
     this.auth.logIn();
   }
 

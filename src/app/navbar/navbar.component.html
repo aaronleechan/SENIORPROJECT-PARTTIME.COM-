@@ -6,7 +6,15 @@
       </a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a (click)="logIn()">Sign In</a></li>
+
+      <li [hidden]="!checkLogIn">
+        <a (click)="logIn()">Sign In</a>
+      </li>
+
+      <li [hidden]="checkLogIn">
+        <a (click)="logout()">Sign Out</a>
+      </li>
+
       <li class="dropdown" dropdown> <!-- {1} -->
         <a dropdownToggle role="button"> <!-- {2} -->
           Dropdown <span class="caret"></span></a>
