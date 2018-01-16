@@ -10,18 +10,18 @@ export class AuthService {
 
   private user: Observable<firebase.User>;
   googleProvider = new firebase.auth.GoogleAuthProvider();
+  public checkLogIn: boolean;
 
 
   constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = _firebaseAuth.authState;
-
-
   }
 
   logIn(){
     this._firebaseAuth.auth.signInAnonymously();
     console.log("Success Log In");
     this.router.navigate(['/users']);
+    this.checkLogIn = true;
   }
 
   logInWithGoogle(){
@@ -30,8 +30,9 @@ export class AuthService {
       function(result){
       var token = result.credential.accessToken;
       var user = result.user;
-
-      console.log( token + " <---Success Log In------> " + user);
+      //console.log( " Email " + this._firebaseAuth.auth.currentUser.email);
+        this.checkLogIn = true;
+      console.log( token + " <---Success Log In------> " + user.email);
     }).catch(function(error){
       var errorCode = error.code;
       var errorMessage = error.message;
@@ -42,15 +43,9 @@ export class AuthService {
   }
 
   logOut(){
-    // this._firebaseAuth.auth.signOut();
-    // this.router.navigate(['']);
-    this._firebaseAuth.auth.signOut().then(function() {
-      // Sign-out successful.
-      console.log("Log Out Sccessfully why not out");
-      this.router.navigate(['']);
-    }).catch(function(error) {
-      console.log(" ERROR ==> " + error);
-    });
+    this._firebaseAuth.auth.signOut();
+    this.checkLogIn = false;
+    this.router.navigate(['']);
   }
 
 }

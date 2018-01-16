@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from "../../core/auth.service";
 import {Router} from "@angular/router";
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-userlogin',
@@ -8,6 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./userlogin.component.css']
 })
 export class UserloginComponent implements OnInit {
+  user: Observable<firebase.User>;
 
   constructor(private route: Router, private auth: AuthService) { }
 
@@ -20,7 +23,6 @@ export class UserloginComponent implements OnInit {
   }
 
   googleLogIn(){
-    console.log("Google Log IN");
     this.auth.logInWithGoogle();
   }
 
