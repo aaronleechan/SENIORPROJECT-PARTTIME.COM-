@@ -8,6 +8,7 @@ import { UserloginComponent } from './users/userlogin/userlogin.component';
 import { UserFinderComponent } from './users/user-finder/user-finder.component';
 import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
 import { LoginComponent } from './login/login.component';
+import {SearchPageComponent} from './search-page/search-page.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'userlogin', component: UserloginComponent},
   { path: 'userfinder', component: UserFinderComponent},
   { path: 'userhirer', component: UserHirerComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'searchpage', component: SearchPageComponent}
 
 ];
 
