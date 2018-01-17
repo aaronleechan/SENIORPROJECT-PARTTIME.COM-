@@ -1,3 +1,14 @@
-<p>
-  user-finder works!
-</p>
+<!-- People who need a service -->
+
+<h5> People who need a service </h5>
+
+<table class="table table-sm table-hover" >
+  <tr *ngFor="let user of userFinder" >
+    <td *ngIf="user.hire == true"> {{ user.firstname }} </td>
+    <td *ngIf="user.hire == true"> {{ user.lastname }}  </td>
+    <td *ngIf="user.hire == true"> {{ user.email }}     </td>
+    <td *ngIf="user.hire == true"> {{ user.hire}}       </td>
+    <td *ngIf="user.hire == true"> {{ user.find}}       </td>
+  </tr>
+
+</table>

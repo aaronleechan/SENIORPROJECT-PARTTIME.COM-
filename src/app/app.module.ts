@@ -33,6 +33,7 @@ import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http'
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,8 +59,7 @@ import { HttpClientModule } from '@angular/common/http'
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    HttpClientModule
-
+    HttpClientModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

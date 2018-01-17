@@ -1,3 +1,5 @@
+<html >
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -8,16 +10,17 @@
     <ul class="nav navbar-nav navbar-right">
 
       <li>
-        <a *ngIf="checkLogIn==true" (click)="logIn()">Sign In</a>
+        <a *ngIf="(this.auth.userCheckerLogIn)"
+           (click)="logIn()">Sign In</a>
       </li>
 
-      <li>
-        <a *ngIf="checkLogIn==false" (click)="logout()">Sign Out</a>
+      <li *ngIf="!(this.auth.userCheckerLogIn)">
+        <a (click)="logout()">Sign Out</a>
       </li>
 
-      <li class="dropdown" dropdown> <!-- {1} -->
+      <li class="dropdown" dropdown *ngIf="!(this.auth.userCheckerLogIn)"> <!-- {1} -->
         <a dropdownToggle role="button"> <!-- {2} -->
-          Dropdown <span class="caret"></span></a>
+          User Email <span class="caret"></span></a>
         <ul *dropdownMenu class="dropdown-menu"> <!-- {3} -->
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -31,3 +34,7 @@
     </ul>
   </div>
 </nav>
+
+</html>
+
+
