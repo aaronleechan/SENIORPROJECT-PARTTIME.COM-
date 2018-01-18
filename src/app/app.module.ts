@@ -28,13 +28,13 @@ import { UserListComponent } from './users/user-list/user-list.component';
 import { HomeComponent } from './home/home.component';
 import {AuthService} from './core/auth.service';
 import { UserloginComponent } from './users/userlogin/userlogin.component';
-import { UserFinderComponent } from './users/user-finder/user-finder.component';
-import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { SearchServiceProviderComponent } from './search-page/search-service-provider/search-service-provider.component';
-import { SearchServiceReciverComponent } from './search-page/search-service-reciver/search-service-reciver.component'
+import { SearchServiceReciverComponent } from './search-page/search-service-reciver/search-service-reciver.component';
+import { UserproviderComponent } from './users/userprovider/userprovider.component';
+import { UserreciverComponent } from './users/userreciver/userreciver.component'
 
 
 @NgModule({
@@ -46,12 +46,12 @@ import { SearchServiceReciverComponent } from './search-page/search-service-reci
     NavbarComponent,
     HomeComponent,
     UserloginComponent,
-    UserFinderComponent,
-    UserHirerComponent,
     LoginComponent,
     SearchPageComponent,
     SearchServiceProviderComponent,
-    SearchServiceReciverComponent
+    SearchServiceReciverComponent,
+    UserproviderComponent,
+    UserreciverComponent
   ],
   imports: [
     BrowserModule,

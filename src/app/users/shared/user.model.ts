@@ -5,6 +5,6 @@ export class User {
   firstname: string;
   lastname: string;
   email: string;
-  hire: boolean;
-  find: boolean;
+  receiver: boolean;
+  provider: boolean;
 }

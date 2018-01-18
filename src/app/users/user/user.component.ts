@@ -38,8 +38,8 @@ export class UserComponent implements OnInit {
       firstname: '',
       lastname: '',
       email: '',
-      hire: false,
-      find: false
+      receiver: false,
+      provider: false
     }
   }
 }

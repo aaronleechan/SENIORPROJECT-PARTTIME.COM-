@@ -25,8 +25,8 @@ export class UserService {
       firstname: user.firstname,
       lastname: user.lastname,
       email: user.email,
-      hire: user.hire,
-      find: user.find
+      receiver: user.receiver,
+      provider: user.provider
     });
   }
 
@@ -35,8 +35,8 @@ export class UserService {
       firstname: user.firstname,
       lastname: user.lastname,
       email: user.email,
-      hire: user.hire,
-      find: user.find
+      receiver: user.receiver,
+      provider: user.provider
     });
   }
 

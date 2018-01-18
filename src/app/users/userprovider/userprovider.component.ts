@@ -3,32 +3,25 @@ import {User} from "../shared/user.model";
 import {UserService} from "../shared/user.service";
 
 @Component({
-  selector: 'app-user-finder',
-  templateUrl: './user-finder.component.html',
-  styleUrls: ['./user-finder.component.css'],
+  selector: 'app-userprovider',
+  templateUrl: './userprovider.component.html',
+  styleUrls: ['./userprovider.component.css'],
   providers: [UserService]
-
 })
-export class UserFinderComponent implements OnInit {
-  userFinder: User[];
-
+export class UserproviderComponent implements OnInit {
+  userProvider: User[];
   constructor(private userservice: UserService) { }
 
   ngOnInit() {
-
     var x = this.userservice.getData();
     x.snapshotChanges().subscribe(item => {
-      this.userFinder = [];
+      this.userProvider = [];
       item.forEach(element => {
         var y = element.payload.toJSON();
         y["$key"] = element.key;
-        this.userFinder.push(y as User);
+        this.userProvider.push(y as User);
       });
     });
-
   }
 
 }
-
-
-

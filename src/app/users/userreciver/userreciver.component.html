@@ -1,0 +1,11 @@
+<h3> Service Reciver List</h3>
+
+<table class="table table-sm table-hover" >
+  <tr *ngFor="let user of userReciver" >
+    <td *ngIf="user.receiver == true"> {{ user.firstname }} </td>
+    <td *ngIf="user.receiver == true"> {{ user.lastname }}  </td>
+    <td *ngIf="user.receiver == true"> {{ user.email }}     </td>
+    <td *ngIf="user.receiver == true"> {{ user.hire}}       </td>
+    <td *ngIf="user.receiver == true"> {{ user.find}}       </td>
+  </tr>
+</table>
