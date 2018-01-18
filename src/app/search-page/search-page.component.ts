@@ -7,15 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchPageComponent implements OnInit {
 
-  option: boolean;
+  check: boolean;
 
-  constructor() { }
+  constructor() {
+    this.check = true;
+  }
 
   ngOnInit() {
   }
 
-
-
+  checkAll(){
+    if(this.check){
+      this.check = false;
+    }else{
+      this.check = true;
+    }
+  }
 
 }
 
