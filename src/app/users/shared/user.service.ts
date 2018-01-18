@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
 import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
+import { User } from './user.model';
 import {Credit} from "./credit";
 
 
@@ -8,10 +8,11 @@ import {Credit} from "./credit";
 @Injectable()
 export class UserService {
   userList: AngularFireList<any>;
-  selecteduser: User = new User();
+  selectedUser: User = new User();
 
 
-  constructor(private firebase: AngularFireDatabase) { }
+  constructor(private firebase: AngularFireDatabase) {
+  }
 
 
   getData(){
@@ -19,31 +20,23 @@ export class UserService {
     return this.userList;
   }
 
-  insertUser(user: User){
+  insertUser(user : User){
     this.userList.push({
-
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
-      phone: user.phone,
-      address: user.address,
-      credits: user.credits,
-      providingServices: user.providingServices,
-      serviceSeekers: user.serviceSeekers,
-      serviceFee: user.serviceFee
-
+      hire: user.hire,
+      find: user.find
     });
   }
 
   updateUser(user: User){
     this.userList.update(user.$key,{
-      name: user.name,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
-      phone: user.phone,
-      address: user.address,
-      credits: user.credits,
-      providingServices: user.providingServices,
-      serviceSeekers: user.serviceSeekers,
-      serviceFee: user.serviceFee
+      hire: user.hire,
+      find: user.find
     });
   }
 

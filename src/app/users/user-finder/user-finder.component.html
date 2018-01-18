@@ -1,0 +1,14 @@
+<!-- People who need a service -->
+
+<h3> Service Receiver </h3>
+
+<table class="table table-sm table-hover" >
+  <tr *ngFor="let user of userFinder" >
+    <td *ngIf="user.find == true"> {{ user.firstname }} </td>
+    <td *ngIf="user.find == true"> {{ user.lastname }}  </td>
+    <td *ngIf="user.find == true"> {{ user.email }}     </td>
+    <td *ngIf="user.find == true"> {{ user.hire}}       </td>
+    <td *ngIf="user.find == true"> {{ user.find}}       </td>
+  </tr>
+
+</table>
