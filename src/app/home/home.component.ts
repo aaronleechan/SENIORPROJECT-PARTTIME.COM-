@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   }
 
   SearchPage(){
-    this.route.navigate(['/users']);
+    this.route.navigate(['/searchpage']);
   }
 
 }

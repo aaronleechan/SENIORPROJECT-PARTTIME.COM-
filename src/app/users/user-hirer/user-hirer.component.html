@@ -1,14 +1,14 @@
 <!-- This page is for Parttime work seeker list-->
 
-<h5> This page is for Parttime work seeker list </h5>
+<h5> This page is for Parttime work seeker list (Service Provider) </h5>
 
 <table class="table table-sm table-hover" >
   <tr *ngFor="let user of userHirer" >
-      <td *ngIf="user.find == true"> {{ user.firstname }} </td>
-      <td *ngIf="user.find == true"> {{ user.lastname }}  </td>
-      <td *ngIf="user.find == true"> {{ user.email }}     </td>
-      <td *ngIf="user.find == true"> {{ user.hire}}       </td>
-      <td *ngIf="user.find == true"> {{ user.find}}       </td>
+      <td *ngIf="user.hire == true"> {{ user.firstname }} </td>
+      <td *ngIf="user.hire == true"> {{ user.lastname }}  </td>
+      <td *ngIf="user.hire == true"> {{ user.email }}     </td>
+      <td *ngIf="user.hire == true"> {{ user.hire}}       </td>
+      <td *ngIf="user.hire == true"> {{ user.find}}       </td>
   </tr>
 </table>
 

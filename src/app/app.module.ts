@@ -32,7 +32,9 @@ import { UserFinderComponent } from './users/user-finder/user-finder.component';
 import { UserHirerComponent } from './users/user-hirer/user-hirer.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SearchPageComponent } from './search-page/search-page.component'
+import { SearchPageComponent } from './search-page/search-page.component';
+import { SearchServiceProviderComponent } from './search-page/search-service-provider/search-service-provider.component';
+import { SearchServiceReciverComponent } from './search-page/search-service-reciver/search-service-reciver.component'
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { SearchPageComponent } from './search-page/search-page.component'
     UserFinderComponent,
     UserHirerComponent,
     LoginComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    SearchServiceProviderComponent,
+    SearchServiceReciverComponent
   ],
   imports: [
     BrowserModule,

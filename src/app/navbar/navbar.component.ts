@@ -17,8 +17,6 @@ export class NavbarComponent implements OnInit {
 
   }
 
-
-
   ngOnInit() {
 
   }
@@ -31,7 +29,7 @@ export class NavbarComponent implements OnInit {
     this.auth.logOut();
   }
 
-
-
-
+  searchPage(){
+    this.route.navigate(['/searchpage']);
+  }
 }
