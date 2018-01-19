@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import {SearchPageComponent} from './search-page/search-page.component';
 import { UserproviderComponent } from './users/userprovider/userprovider.component';
 import { UserreciverComponent} from "./users/userreciver/userreciver.component";
+import {UserprofileComponent} from "./users/userprofile/userprofile.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'searchpage', component: SearchPageComponent},
   { path: 'provider', component: UserproviderComponent},
-  { path: 'receiver', component: UserreciverComponent}
+  { path: 'receiver', component: UserreciverComponent},
+  { path: 'userProfile', component: UserprofileComponent}
 
 ];
 

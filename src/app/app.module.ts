@@ -34,7 +34,8 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { SearchServiceProviderComponent } from './search-page/search-service-provider/search-service-provider.component';
 import { SearchServiceReciverComponent } from './search-page/search-service-reciver/search-service-reciver.component';
 import { UserproviderComponent } from './users/userprovider/userprovider.component';
-import { UserreciverComponent } from './users/userreciver/userreciver.component'
+import { UserreciverComponent } from './users/userreciver/userreciver.component';
+import { UserprofileComponent } from './users/userprofile/userprofile.component'
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { UserreciverComponent } from './users/userreciver/userreciver.component'
     SearchServiceProviderComponent,
     SearchServiceReciverComponent,
     UserproviderComponent,
-    UserreciverComponent
+    UserreciverComponent,
+    UserprofileComponent
   ],
   imports: [
     BrowserModule,
