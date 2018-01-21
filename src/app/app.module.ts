@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormsModule} from "@angular/forms";
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { CoreModule} from "./core/core.module";
 
 //Boostrap
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -68,6 +69,7 @@ import { UserprofileComponent } from './users/userprofile/userprofile.component'
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
+    CoreModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

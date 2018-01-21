@@ -1,10 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth} from "angularfire2/auth";
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Router} from "@angular/router";
 import * as firebase from 'firebase/app';
 import { Observable } from "rxjs/Observable";
 import {UserService } from "../users/shared/user.service";
 import {User} from "../users/shared/user.model";
+import 'rxjs/addoperator/switchMap';
+
+interface CurrentUser{
+  uid: string;
+  email: string;
+}
 
 @Injectable()
 export class AuthService {
@@ -12,11 +19,20 @@ export class AuthService {
   private user: Observable<firebase.User>;
   googleProvider = new firebase.auth.GoogleAuthProvider();
   public userChecker: boolean;
-  users: any;
-  currentuserEmail: string;
+  currentUser: Observable<CurrentUser>;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
+
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router,
+              private angularfirestore: AngularFirestore  ) {
     this.user = _firebaseAuth.authState;
+
+    this.currentUser  = this._firebaseAuth.authState.switchMap(currentuser=>{
+      if(currentuser){
+        return this.angularfirestore.doc<CurrentUser>('users/${user.id}').valueChanges()
+      }else{
+        return Observable.of(null)
+      }
+    })
   }
 
   logIn(){
@@ -27,11 +43,10 @@ export class AuthService {
   logInWithGoogle(){
     // this._firebaseAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     this._firebaseAuth.auth.signInWithPopup(this.googleProvider).then(
-      function(result){
-      var token = result.credential.accessToken;
-      var user = result.user;
-
-    }).catch(function(error){
+      (credential)=>{
+        this.updateUserData(credential.currentuser)
+      }
+    ).catch(function(error){
       var errorCode = error.code;
       var errorMessage = error.message;
       var email = error.email;
@@ -41,9 +56,18 @@ export class AuthService {
     this.userCheckerLogIn;
   }
 
+  private updateUserData(currentuser){
+    const userRef: AngularFirestoreDocument<any> = this.angularfirestore.doc('users/${user.uid}');
+
+    const data: CurrentUser = {
+      uid: currentuser.uid,
+      email: currentuser.email
+    }
+    return userRef.set(data);
+  }
+
   logOut(){
     this._firebaseAuth.auth.signOut();
-    this.currentuserEmail = null;
     this.router.navigate(['']);
   }
 
@@ -53,7 +77,6 @@ export class AuthService {
       return this.userChecker;
     }else{
       this.userChecker = false;
-      this.currentuserEmail = this._firebaseAuth.auth.currentUser.email;
       return this.userChecker;
     }
   }

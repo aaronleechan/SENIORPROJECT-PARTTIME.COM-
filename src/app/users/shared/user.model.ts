@@ -7,4 +7,5 @@ export class User {
   email: string;
   receiver: boolean;
   provider: boolean;
+
 }

@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
+import {AngularFirestoreModule} from "angularfire2/firestore";
 import { User } from './user.model';
 import {Credit} from "./credit";
 import {AuthService} from "../../core/auth.service";
 import { AngularFireAuth} from "angularfire2/auth";
 import {Router} from "@angular/router";
+import 'rxjs/addoperator/switchMap';
+import { Observable} from "rxjs/Observable";
 
 
 @Injectable()
@@ -14,14 +17,14 @@ export class UserService {
   users: User[];
 
 
-
-  constructor(private firebase: AngularFireDatabase, private auth: AuthService,
+  constructor(private angularfiredatabase: AngularFireDatabase, private authservice: AuthService,
+              private angularfirestore: AngularFirestoreModule,
               private angularfireauth: AngularFireAuth, private route: Router) {
 
   }
 
   getData(){
-    this.userList = this.firebase.list('users');
+    this.userList = this.angularfiredatabase.list('users');
     return this.userList;
   }
 
@@ -49,30 +52,6 @@ export class UserService {
     this.userList.remove($key);
   }
 
-
-  checkGoogleUserLogIn(){
-    if(this.auth.userCheckerLogIn){
-
-      var x = this.getData();
-      x.snapshotChanges().subscribe(item => {
-        item.forEach(element => {
-          var y = element.payload.toJSON();
-          y["$key"] = element.key;
-
-
-          console.log( " =========> " + y['email'] + " .. " + this.auth.currentuserEmail);
-          if(y['email'] == this.auth.currentuserEmail){
-            this.route.navigate(['/userProfile']);
-          }
-
-
-        });
-      });
-
-    }
-
-
-  }
 
 
 

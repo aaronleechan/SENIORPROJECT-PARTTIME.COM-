@@ -30,7 +30,6 @@ export class UserloginComponent implements OnInit {
 
   googleLogIn(){
     this.auth.logInWithGoogle();
-    this.userservice.checkGoogleUserLogIn();
   }
 
 }
