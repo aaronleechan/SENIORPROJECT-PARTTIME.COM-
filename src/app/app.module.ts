@@ -35,7 +35,7 @@ import { SearchServiceProviderComponent } from './search-page/search-service-pro
 import { SearchServiceReciverComponent } from './search-page/search-service-reciver/search-service-reciver.component';
 import { UserproviderComponent } from './users/userprovider/userprovider.component';
 import { UserreciverComponent } from './users/userreciver/userreciver.component';
-import { UserprofileComponent } from './users/userprofile/userprofile.component'
+import { UserprofileComponent } from './users/userprofile/userprofile.component';
 
 
 @NgModule({

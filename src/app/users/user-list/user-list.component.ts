@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserService} from "../shared/user.service";
 import { User } from "../shared/user.model";
 import {ToastrService} from "ngx-toastr";
+import {AngularFireAuth} from "angularfire2/auth";
+import {AuthService} from "../../core/auth.service";
+import {Router} from "@angular/router";
+import {AngularFireDatabase, AngularFireList} from "angularfire2/database";
 
 @Component({
   selector: 'app-user-list',
@@ -11,9 +15,19 @@ import {ToastrService} from "ngx-toastr";
 })
 export class UserListComponent implements OnInit {
   userList: User[];
-  constructor(private userservice: UserService, private toastr: ToastrService) { }
+
+
+  constructor(
+                private userservice: UserService, private toastr: ToastrService,
+                private fireauth: AngularFireAuth, private authService: AuthService,
+                private route: Router
+              )
+  {
+
+  }
 
   ngOnInit() {
+
     var x = this.userservice.getData();
     x.snapshotChanges().subscribe(item => {
       this.userList = [];
@@ -24,6 +38,7 @@ export class UserListComponent implements OnInit {
       });
     });
   }
+
 
   onEdit(usr : User){
     this.userservice.selectedUser = Object.assign({},usr);

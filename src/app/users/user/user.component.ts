@@ -3,17 +3,21 @@ import {UserService} from '../shared/user.service';
 import {NgForm} from "@angular/forms";
 import {ToastrModule, ToastrService} from "ngx-toastr";
 
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
+  providers: [UserService]
+
 })
 export class UserComponent implements OnInit {
 
-  constructor(private userservice: UserService, private tostr: ToastrService) { }
+  constructor(private userservice: UserService, private tostr: ToastrService) {
+
+  }
 
   ngOnInit() {
-
     this.resetForm();
   }
 
